@@ -96,7 +96,7 @@ function getMillisecond()
 构建日志文件，调用可以生成该方法使用日志，排错可用
  */
 function logResult($word='') {
-    $fp = fopen("/home/amrta/log.txt","wb");
+    $fp = fopen("/home/amrta/log.txt","w+");
     flock($fp, LOCK_EX) ;
     fwrite($fp,"执行日期：".strftime("%Y%m%d%H%M%S",time())."\n".$word."\n");
     flock($fp, LOCK_UN);

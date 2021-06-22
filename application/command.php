@@ -10,5 +10,6 @@
 // +----------------------------------------------------------------------
 
 return [
-    'app\common\command\Timing'
+    'app\common\command\Timing',
+    'app\common\command\Test'
 ];
