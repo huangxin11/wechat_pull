@@ -9,7 +9,6 @@
 namespace app\common\command;
 
 
-use app\index\model\AritcleListsModel;
 use think\console\Command;
 use think\Exception;
 use think\console\Output;
@@ -27,7 +26,7 @@ class Timing extends Command
      */
     protected function execute(Input $input, Output $output)
     {
-        $articleList = new AritcleListsModel();
+        logResult('测试timing');exit;
         logResult('进入定时拉取文章任务' . "\n");
         $this->index();
 
@@ -37,7 +36,6 @@ class Timing extends Command
 
     public function index()
     {
-        $articleList = new AritcleListsModel();
         try {
             sleep(0);
             logResult('微信拉取数据开始' . "\n");
