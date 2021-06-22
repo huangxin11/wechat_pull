@@ -17,9 +17,9 @@ return [
     // 数据库名
     'database'        => 'planet_applet',
     // 用户名
-    'username'        => 'root',
+    'username'        => 'amrta',
     // 密码
-    'password'        => 'root',
+    'password'        => 'amrta@ybb',
     // 端口
     'hostport'        => '',
     // 连接dsn

@@ -14,6 +14,7 @@ class Index
 
     public function hello($name = 'ThinkPHP5')
     {
+        logResult('执行到我了');
         var_dump(1);exit;
         header("Content-type: text/html; charset=utf-8");
         ini_set('soap.wsdl_cache_enabled','0');
