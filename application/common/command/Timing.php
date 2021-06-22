@@ -38,11 +38,11 @@ class Timing extends Command
         try {
             sleep(0);
             logResult('微信拉取数据开始' . "\n");
-            $material = action('index/and_pull/saveArticle');
+            $material = action('index/And_Pull/saveArticle');
             logResult('微信拉取数据结束' . "\n");
             if ($material) {
                 logResult('获取封面图开始' . "\n");
-                $img_url = action('index/andpull/imgUrl');
+                $img_url = action('index/And_Pull/imgUrl');
                 logResult('获取封面图结束' . "\n");
                 if (!$img_url) {
                     logResult('获取封面图失败' . "\n");

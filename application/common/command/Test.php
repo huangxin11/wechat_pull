@@ -19,7 +19,7 @@ class Test extends Command
     {
         logResult('执行了Test定时任务');
         action('index/index/hello');
-        action('index/and_pull/save_article');
+        //action('index/and_pull/save_article');
         $output->writeln("TestCommand");
     }
 
