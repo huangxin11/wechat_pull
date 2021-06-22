@@ -26,7 +26,6 @@ class Timing extends Command
      */
     protected function execute(Input $input, Output $output)
     {
-        logResult('测试timing');exit;
         logResult('进入定时拉取文章任务' . "\n");
         $this->index();
 

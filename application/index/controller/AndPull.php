@@ -16,6 +16,7 @@ class AndPull extends Controller
 
     public function saveArticle()
     {
+        echo 2;exit;
         $model = new AndPullModel();
         $accessToken = $model->getAccessToken($this->appid, $this->secret);
         if (array_key_exists('errcode', $accessToken)) {

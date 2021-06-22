@@ -18,6 +18,8 @@ class Test extends Command
     protected function execute(Input $input, Output $output)
     {
         logResult('执行了Test定时任务');
+        action('index/index/hello');
+        action('index/and_pull/save_article');
         $output->writeln("TestCommand");
     }
 
