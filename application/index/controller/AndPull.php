@@ -37,35 +37,37 @@ class AndPull extends Controller
                     logResult($str);
                     break;
             }
-        }
-        if (array_key_exists('access_token', $accessToken)) {
-            //var_dump($accessToken);
-            //获取素材总数
-            $count = $model->getCountMaterial($accessToken['access_token']);
-            //var_dump($count);
-            $for_num = ceil($count['news_count'] / 20);
-            $i = 0;
-            //获取列表素材
-            while ($i < $for_num) {
-                set_time_limit(0);
-                ini_set('memory_limit', '-1');
-                try {
-                    $material_list = $model->getMaterialList($accessToken['access_token'], $i, 20);
-                    if (!array_key_exists('errcode', $material_list)) {
-                        $item = $material_list['item'];
-                        $model->saveArticle($item);
-                        $i++;
-                    } else {
-                        sleep(120);
+        } else {
+            if (array_key_exists('access_token', $accessToken)) {
+                //var_dump($accessToken);
+                //获取素材总数
+                $count = $model->getCountMaterial($accessToken['access_token']);
+                //var_dump($count);
+                $for_num = ceil($count['news_count'] / 20);
+                $i = 0;
+                //获取列表素材
+                while ($i < $for_num) {
+                    set_time_limit(0);
+                    ini_set('memory_limit', '-1');
+                    try {
+                        $material_list = $model->getMaterialList($accessToken['access_token'], $i, 20);
+                        if (!array_key_exists('errcode', $material_list)) {
+                            $item = $material_list['item'];
+                            $model->saveArticle($item);
+                            $i++;
+                        } else {
+                            sleep(120);
+                        }
+                    } catch (Exception $e) {
+                        logResult('拉取微信公众号报错：' . $e->getMessage() . '++' . $e->getTraceAsString());
+                        return false;
                     }
-                } catch (Exception $e) {
-                    logResult('拉取微信公众号报错：' . $e->getMessage() . '++' . $e->getTraceAsString());
-                    return false;
+
                 }
 
             }
-
         }
+
         return true;
     }
 
@@ -77,7 +79,7 @@ class AndPull extends Controller
         //获取所有的文章url，id
         $model = new AndPullModel();
         $count = $model->getCountArticle();
-        if (count($count[0]['total_num'])) {
+        if ($count && count($count[0]['total_num'])) {
             $num = ceil($count[0]['total_num'] / 20);
             $i = 0;
             while ($i < $num) {

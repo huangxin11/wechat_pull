@@ -36,7 +36,7 @@ class Timing extends Command
     public function index()
     {
         try {
-            sleep(0);
+            set_time_limit(0);
             logResult('微信拉取数据开始' . "\n");
             $material = action('index/And_Pull/saveArticle');
             logResult('微信拉取数据结束' . "\n");
