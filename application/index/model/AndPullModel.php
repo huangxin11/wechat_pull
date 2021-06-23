@@ -71,8 +71,9 @@ class AndPullModel extends Model
     //获取文章列表总数
     public function getCountArticle()
     {
-        $sql = "SELECT COUNT(*) as total_num  FROM `al_article_lists` WHERE is_update = 1";
-        $result = Db::query($sql);
+//        $sql = "SELECT COUNT(*) as total_num  FROM `al_article_lists` WHERE is_update = 1";
+        $result = Db::table('al_article_lists')->where('is_update','1')->count();
+//        $result = Db::query($sql);
         return $result;
     }
 
