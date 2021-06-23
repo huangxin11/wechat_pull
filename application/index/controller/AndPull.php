@@ -19,7 +19,6 @@ class AndPull extends Controller
         logResult('进入拉取状态!');
         $model = new AndPullModel();
         $accessToken = $model->getAccessToken($this->appid, $this->secret);
-        logResult(json_encode($accessToken));
         if (array_key_exists('errcode', $accessToken)) {
             $str = '状态码:' . $accessToken['errcode'] . '++报错信息:' . $accessToken['errmsg'];
             switch ($accessToken['errcode']) {
