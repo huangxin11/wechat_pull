@@ -103,8 +103,9 @@ class AndPull extends Controller
             $this->imgUrl();
         } else {
             logResult('文章内容获取成功');
-            return $result;
+            $result = true;
         }
+        return $result;
 
     }
 
