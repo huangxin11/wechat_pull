@@ -78,6 +78,7 @@ class AndPull extends Controller
         //获取所有的文章url，id
         $model = new AndPullModel();
         $count = $model->getCountArticle();
+        logResult(json_encode($count));
         if ($count && count($count[0]['total_num'])) {
             $num = ceil($count[0]['total_num'] / 20);
             $i = 0;
