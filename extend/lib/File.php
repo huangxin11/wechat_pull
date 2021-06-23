@@ -28,7 +28,6 @@ class File
     {
         $arr = $this->arr;
         $model = new AndPullModel();
-        logResult(json_encode($arr));
         $pattern = '/var msg_cdn_url = \"(.*?)\"/';
         while (count($arr) != 0) {
             set_time_limit(0);

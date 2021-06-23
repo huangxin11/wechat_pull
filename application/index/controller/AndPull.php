@@ -85,7 +85,6 @@ class AndPull extends Controller
                 set_time_limit(0);
                 ini_set('memory_limit', '-1');
                 $article_list = $model->getArticleUrl($i);
-                logResult(json_encode($article_list));
                 $file = new \lib\File($article_list);
                 try {
                     $result = $file->saveContentUrl();
