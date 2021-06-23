@@ -18,12 +18,12 @@ define('DOMDOCUMENT', 'DOMDocument');
 define('DOMELEMENT', 'DOMElement');
 define('DOMNODELIST', 'DOMNodeList');
 define('DOMNODE', 'DOMNode');
-require_once(dirname(__FILE__) . '/phpQuery/DOMEvent.php');
-require_once(dirname(__FILE__) . '/phpQuery/DOMDocumentWrapper.php');
-require_once(dirname(__FILE__) . '/phpQuery/phpQueryEvents.php');
-require_once(dirname(__FILE__) . '/phpQuery/Callback.php');
-require_once(dirname(__FILE__) . '/phpQuery/phpQueryObject.php');
-require_once(dirname(__FILE__) . '/phpQuery/compat/mbstring.php');
+require_once(dirname(__FILE__).'/phpQuery/DOMEvent.php');
+require_once(dirname(__FILE__).'/phpQuery/DOMDocumentWrapper.php');
+require_once(dirname(__FILE__).'/phpQuery/phpQueryEvents.php');
+require_once(dirname(__FILE__).'/phpQuery/Callback.php');
+require_once(dirname(__FILE__).'/phpQuery/phpQueryObject.php');
+require_once(dirname(__FILE__).'/phpQuery/compat/mbstring.php');
 /**
  * Static namespace for phpQuery functions.
  *
@@ -94,6 +94,8 @@ abstract class phpQuery {
 		'data' => null,
 		'username' => null,
 		'password' => null,
+		'dataType' => null,
+		'ifModified' => null,
 		'accepts' => array(
 			'xml' => "application/xml, text/xml",
 			'html' => "text/html",
@@ -1339,4 +1341,4 @@ set_include_path(
 phpQuery::$plugins = new phpQueryPlugins();
 // include bootstrap file (personal library config)
 if (file_exists(dirname(__FILE__).'/phpQuery/bootstrap.php'))
-	require_once dirname(__FILE__) . '/phpQuery/bootstrap.php';
+	require_once dirname(__FILE__).'/phpQuery/bootstrap.php';

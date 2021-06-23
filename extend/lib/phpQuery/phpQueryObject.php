@@ -1061,7 +1061,7 @@ class phpQueryObject
 							$b = mb_strlen($param) > 3
 								? $param{3}
 								: 0;
-							$a = $param[0];
+							$a = $param{0};
 							if ($b && $param{2} == "-")
 								$b = -$b;
 							if ($a > 0) {
@@ -1329,7 +1329,7 @@ class phpQueryObject
 			if (extension_loaded('mbstring') && phpQuery::$mbstringSupport)
 				mb_ereg('^([^ ]+) (.*)$', $url, $matches);
 			else
-				preg_match('^([^ ]+) (.*)$', $url, $matches);
+				preg_match('@^([^ ]+) (.*)$@', $url, $matches);
 			$url = $matches[1];
 			$selector = $matches[2];
 			// FIXME this sucks, pass as callback param
@@ -1878,7 +1878,7 @@ class phpQueryObject
 	}
 	/**
 	 * Enter description here...
-	 *
+	 * 
 	 * @param $code
 	 * @return unknown_type
 	 */
@@ -1889,7 +1889,7 @@ class phpQueryObject
 	}
 	/**
 	 * Enter description here...
-	 *
+	 * 
 	 * @param $code
 	 * @return unknown_type
 	 */
@@ -2539,6 +2539,7 @@ class phpQueryObject
 	 * Internal stack iterator.
 	 *
 	 * @access private
+     * @return {Array.<DOMNode>}
 	 */
 	public function stack($nodeTypes = null) {
 		if (!isset($nodeTypes))
@@ -2918,7 +2919,7 @@ class phpQueryObject
 	}
 	/**
 	 * Enter description here...
-	 *
+	 * 
 	 * @param <type> $key
 	 * @param <type> $value
 	 */
@@ -2935,7 +2936,7 @@ class phpQueryObject
 	}
 	/**
 	 * Enter description here...
-	 *
+	 * 
 	 * @param <type> $key
 	 */
 	public function removeData($key) {
