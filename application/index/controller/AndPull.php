@@ -78,9 +78,8 @@ class AndPull extends Controller
         //获取所有的文章url，id
         $model = new AndPullModel();
         $count = $model->getCountArticle();
-        logResult(json_encode($count));
-        if ($count && count($count[0]['total_num'])) {
-            $num = ceil($count[0]['total_num'] / 20);
+        if ($count) {
+            $num = ceil($count / 20);
             $i = 0;
             while ($i < $num) {
                 set_time_limit(0);
@@ -100,7 +99,7 @@ class AndPull extends Controller
             logResult('没有需要修改的文章');
         }
         $countNum = $model->getCountArticle();
-        if ($countNum['0']['total_num']) {
+        if ($countNum) {
             $this->imgUrl();
         } else {
             logResult('文章内容获取成功');
